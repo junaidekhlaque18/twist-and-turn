@@ -223,5 +223,15 @@ background:#0c1727;
 #rules h2{
 margin-bottom:50px;
 }
+  #results{
+background:#08111f;
+text-align:center;
+}
+
+.results-text{
+margin-bottom:35px;
+font-size:20px;
+color:#18d4ff;
+}
 
 }
