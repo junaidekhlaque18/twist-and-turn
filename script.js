@@ -1,11 +1,12 @@
-// =========================
+// ==========================
 // Countdown Timer
-// =========================
+// ==========================
 
-const targetDate = new Date("July 4, 2026 00:00:00").getTime();
 const countdown = document.getElementById("countdown");
 
-setInterval(() => {
+const targetDate = new Date("July 4, 2026 00:00:00").getTime();
+
+function updateCountdown() {
 
     if (!countdown) return;
 
@@ -22,15 +23,35 @@ setInterval(() => {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    countdown.innerHTML =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    countdown.innerHTML = `
+        <div class="time-box">
+            <div class="time-number">${days}</div>
+            <div class="time-text">Days</div>
+        </div>
 
-}, 1000);
+        <div class="time-box">
+            <div class="time-number">${hours}</div>
+            <div class="time-text">Hours</div>
+        </div>
 
+        <div class="time-box">
+            <div class="time-number">${minutes}</div>
+            <div class="time-text">Minutes</div>
+        </div>
 
-// =========================
+        <div class="time-box">
+            <div class="time-number">${seconds}</div>
+            <div class="time-text">Seconds</div>
+        </div>
+    `;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ==========================
 // Mobile Menu
-// =========================
+// ==========================
 
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
@@ -49,18 +70,23 @@ if (menuBtn && navLinks) {
 
     });
 
-    const links = navLinks.querySelectorAll("a");
-
-    links.forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            navLinks.classList.remove("active");
-
-            menuBtn.innerHTML = "☰";
-
-        });
-
-    });
-
 }
+// ==========================
+// Navbar Scroll Effect
+// ==========================
+
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 40){
+
+        header.classList.add("scrolled");
+
+    }else{
+
+        header.classList.remove("scrolled");
+
+    }
+
+});
