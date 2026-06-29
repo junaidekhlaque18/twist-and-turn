@@ -233,5 +233,33 @@ margin-bottom:35px;
 font-size:20px;
 color:#18d4ff;
 }
+  .menu-btn{
+display:none;
+font-size:32px;
+cursor:pointer;
+}
+
+@media(max-width:900px){
+
+.menu-btn{
+display:block;
+}
+
+nav ul{
+display:none;
+position:absolute;
+top:80px;
+left:0;
+width:100%;
+background:#091522;
+flex-direction:column;
+padding:20px;
+}
+
+nav ul.active{
+display:flex;
+}
+
+}
 
 }
