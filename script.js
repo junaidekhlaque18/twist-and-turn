@@ -25,5 +25,14 @@ const timer = setInterval(function () {
             "Competition Started!";
 
     }
+    const menuBtn=document.getElementById("menuBtn");
+
+const navLinks=document.getElementById("navLinks");
+
+menuBtn.onclick=function(){
+
+navLinks.classList.toggle("active");
+
+}
 
 }, 1000);
