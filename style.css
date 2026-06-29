@@ -216,5 +216,12 @@ max-width:400px;
 #countdown{
 font-size:30px;
 }
+  #rules{
+background:#0c1727;
+}
+
+#rules h2{
+margin-bottom:50px;
+}
 
 }
