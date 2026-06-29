@@ -1,25 +1,29 @@
 const targetDate = new Date("July 4, 2026 00:00:00").getTime();
 
-const countdown = setInterval(() => {
+const timer = setInterval(function () {
 
-const now = new Date().getTime();
+    const now = new Date().getTime();
 
-const distance = targetDate - now;
+    const distance = targetDate - now;
 
-const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
-const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
-const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-document.getElementById("countdown").innerHTML =
-`${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+    document.getElementById("countdown").innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
-if(distance < 0){
-clearInterval(countdown);
-document.getElementById("countdown").innerHTML = "Competition Started!";
-}
+    if (distance < 0) {
 
-},1000);
+        clearInterval(timer);
+
+        document.getElementById("countdown").innerHTML =
+            "Competition Started!";
+
+    }
+
+}, 1000);
